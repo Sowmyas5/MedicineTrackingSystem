@@ -1,0 +1,39 @@
+<h1>Medicine Tracking System</h1>
+
+<p>This component demonstrates fetching Medicines data from the server.</p>
+
+<p *ngIf="!medList"><em>Loading...</em></p>
+
+<p>
+  <a [routerLink]="['/add-medicine']">Create New</a>
+</p>
+
+<table class='table' *ngIf="medList">
+  <thead>
+    <tr>
+      <th><input type="checkbox" /></th>
+      <th>Medicine Name</th>
+      <th>Brand</th>
+      <th>Price</th>
+      <th>Quantitiy</th>
+      <th>Expiry Date</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let med of medList">
+      <td><input type="checkbox" />{{med.ID}}</td>
+      <td>{{ med.medicineName }}</td>
+      <td>{{ med.brand }}</td>
+      <td>{{ med.price }}</td>
+      <td>{{ med.quantity }}</td>
+      <td>{{ med.expirydate }}</td>
+      <td>{{ med.notes }}</td>
+      <td>
+      <td>
+        <a [routerLink]="['/medicine/edit/', med.ID]">Edit</a> |
+        <a [routerLink]="" (click)="delete(med.ID)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table> 

@@ -1,0 +1,62 @@
+<h1>{{title}}</h1>
+<h3>Medicines</h3>
+<hr />
+
+<form [formGroup]="medicineForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Medicine Name</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="name">
+    </div>
+    <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+      Name is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Brand</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="brand">
+    </div>
+    <span class="text-danger" *ngIf="brand.invalid && formDir.submitted">
+      Brand is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Price</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="price">
+    </div>
+    <span class="text-danger" *ngIf="price.invalid && formDir.submitted">
+      Price is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12" for="Quantity">Quantity</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="quantity">
+    </div>
+    <span class="text-danger" *ngIf="quantity.invalid && formDir.submitted">
+      Quantity is required
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12" for="ExpiryDate">ExpiryDate</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="expiryDate">
+    </div>
+    <span class="text-danger" *ngIf="expiryDate.invalid && formDir.submitted">
+      ExpiryDate is required
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12" for="notes">Notes</label>
+    <div class="col-md-4">
+      <textarea class="form-control" type="text" formControlName="notes"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Save</button>
+    <button class="btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>  

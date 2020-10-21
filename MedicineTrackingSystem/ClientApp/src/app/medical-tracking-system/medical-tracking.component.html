@@ -1,0 +1,31 @@
+<h1 id="tableLabel">Medical tracking system</h1>
+
+<p>This component demonstrates fetching medical info from the server.</p>
+<p *ngIf="!medicalInfo"><em>Loading...</em></p>
+
+<div>
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="medicalInfo">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temp. (C)</th>
+        <th>Temp. (F)</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.date }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+
+</div>
+<div>
+
+</div>
